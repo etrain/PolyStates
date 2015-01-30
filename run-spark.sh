@@ -6,6 +6,12 @@ PROJECT=PolyStates
 shift
 shift
 
+if [ -z ${SPARK_HOME+x} ]
+then 
+	echo "You must export SPARK_HOME before running this program."
+	exit
+fi
+
 $SPARK_HOME/bin/spark-submit \
   --master $MASTER \
   --deploy-mode client \
